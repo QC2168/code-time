@@ -1,30 +1,15 @@
 <template>
 	<view class="c-container">
-		<note :note="note"></note>
+		<note></note>
 		<view class="c-countdown" v-if="start">
-			<u-count-down 
-			ref="uCountDown" 
-			:timestamp="timestamp" 
-			:autoplay="autoplay" 
-			:show-days="false"
-			:font-size="100" 
-			:separatorSize="65" 
-			:pause="pause"
-			></u-count-down>
+			<u-count-down ref="uCountDown" :timestamp="timestamp" :autoplay="autoplay" :show-days="false"
+				:font-size="100" :separatorSize="65" :pause="pause"></u-count-down>
 		</view>
 		<date-selector v-else ref="dateSelectorRef" showTimeTag @pickend="pickend"></date-selector>
-		<controller-area 
-		@startCountTime="startCountTime" 
-		@stopCountTime="stopCountTime" 
-		@clickSetTime="clickSetTime"
-		:defaultTimeList="defaultTime" 
-		:timestamp="timestamp"
-		:pause="pause" 
-		:start="start"
-		class=""
-		></controller-area>
+	<!-- 	<controller-area @startCountTime="startCountTime" @stopCountTime="stopCountTime" @clickSetTime="clickSetTime"
+			:defaultTimeList="defaultTime" :timestamp="timestamp" :pause="pause" :start="start" class="">
+		</controller-area> -->
 	</view>
-
 </template>
 
 <script>
@@ -36,7 +21,6 @@
 				autoplay: false,
 				timestamp: 300, // 默认五分钟
 				defaultTime: [5, 10, 15],
-				note: "",
 			};
 		},
 		methods: {
@@ -55,8 +39,8 @@
 					this.pause = false;
 				}
 			},
-			pickend(timestamp){
-				this.timestamp=timestamp
+			pickend(timestamp) {
+				this.timestamp = timestamp
 			},
 			stopCountTime() {
 				this.pause = !this.pause;
@@ -78,8 +62,8 @@
 		justify-content: center;
 		align-items: center;
 	}
+
 	.c-countdown {
 		margin-top: 50rpx;
 	}
-
 </style>

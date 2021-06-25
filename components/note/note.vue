@@ -1,18 +1,12 @@
 <template>
 	<view class="c-title">
-		<input class="c-input" type="text" :value="note" placeholder="#添加计时内容" placeholder-class="c-input-pla" />
+		<input class="c-input" type="text" placeholder="#添加计时内容" placeholder-class="c-input-pla" />
 	</view>
 </template>
 
 <script>
 	export default {
 		name:"note",
-		props:{
-			note:{
-				type:String,
-				default:''
-			}
-		}
 	}
 </script>
 
